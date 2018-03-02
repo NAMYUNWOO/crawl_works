@@ -83,7 +83,7 @@ def insertGameMsgs(lastestBoardNum,gid):
     myUrl = "http://gall.dcinside.com/board/view/?id=%s&no=%d"
     print("starting...")
     lastMsgNoLmbda = lambda x : 1 if x==None else x+1
-    idx = lastMsgNoLmbda(c.execute("select Max(MsgNo) from UserMsg").fetchone()[0])
+    idx = lastMsgNoLmbda(c.execute("select Max(MsgNo) from UserMsg where id='%s'"%gid).fetchone()[0])
     batchSize = 100
     isEnd = False
     maxNum = lastestBoardNum
